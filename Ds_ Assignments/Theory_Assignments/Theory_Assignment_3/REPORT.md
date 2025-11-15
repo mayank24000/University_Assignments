@@ -7,7 +7,7 @@
 **Student ID:** 2401830005
 
 
-This document provides a detailed technical overview of the Student Result Management System project. It covers the data structures used, algorithms implemented, performance analysis, and overall system architecture.
+This document provides detailed technical overview of the Student Result Management System project. It covers the data structures used, algorithms implemented, performance analysis, and overall system architecture.
 
 ---
 
