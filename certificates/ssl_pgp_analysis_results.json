@@ -1,0 +1,21 @@
+{
+  "pgp_demo": {
+    "message_structure": {
+      "encrypted_session_key": "13euDVrHvVhZh4axCt3RcPipB8I80BOiEmJVdjuDwPWddyFiF7...",
+      "ciphertext": "LIotuwuglCogPN/KqHDL48MbNFE9BKeE/wB0V5eo4uofeKMeFC...",
+      "has_signature": true
+    },
+    "keys_directory": "certificates\\pgp_keys"
+  },
+  "ssl_results": [
+    {
+      "hostname": "www.google.com",
+      "protocol": "TLSv1.3",
+      "cipher": "TLS_AES_256_GCM_SHA384",
+      "cert_subject": "CN=www.google.com",
+      "valid_until": "2026-01-19 08:35:44+00:00",
+      "success": true
+    }
+  ],
+  "timestamp": "2025-11-17T18:29:13.733868"
+}

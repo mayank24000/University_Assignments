@@ -1,0 +1,177 @@
+===============================================================================
+Q5: SECURE COMMUNICATION PROTOCOLS ANALYSIS
+===============================================================================
+
+OPTION B: PGP ENCRYPTION ANALYSIS
+===============================================================================
+
+1. PGP HYBRID ENCRYPTION MODEL
+--------------------------------
+PGP uses a hybrid cryptosystem combining symmetric and asymmetric encryption:
+
+ENCRYPTION PROCESS:
+1. Generate random session key (AES-256 typically)
+2. Encrypt message with session key (symmetric encryption)
+3. Encrypt session key with recipient's public key (RSA/ECC)
+4. Send: Encrypted message + Encrypted session key
+
+DECRYPTION PROCESS:
+1. Decrypt session key using recipient's private key
+2. Decrypt message using recovered session key
+
+ADVANTAGES:
+• Speed of symmetric encryption for large data
+• Security of public key cryptography for key exchange
+• No need for pre-shared keys
+
+2. PGP MESSAGE FORMAT
+----------------------
+┌─────────────────────────┐
+│   Session Key Packet    │ ← Encrypted with recipient's public key
+├─────────────────────────┤
+│     Signature Packet    │ ← Optional, for authentication
+├─────────────────────────┤
+│    Compressed Data      │ ← Optional compression
+├─────────────────────────┤
+│    Encrypted Message    │ ← Encrypted with session key
+└─────────────────────────┘
+
+3. KEY COMPONENTS
+-----------------
+• Public Key: Used for encryption and signature verification
+• Private Key: Used for decryption and signing
+• Session Key: Symmetric key for actual message encryption
+• Passphrase: Protects private key storage
+
+4. WEB OF TRUST MODEL
+---------------------
+Unlike PKI's hierarchical model, PGP uses Web of Trust:
+• Users sign each other's keys
+• Trust levels: Unknown, Untrusted, Marginal, Full, Ultimate
+• No central authority required
+• Based on personal relationships and reputation
+
+5. BEST PRACTICES FOR SECURE KEY EXCHANGE
+------------------------------------------
+a) KEY VERIFICATION:
+   • Verify key fingerprints out-of-band (phone, in-person)
+   • Use multiple channels for confirmation
+   • Check key signatures from trusted parties
+
+b) KEY SERVERS:
+   • Use reputable key servers (keys.openpgp.org)
+   • Verify keys from multiple sources
+   • Regularly update key revocation status
+
+c) KEY MANAGEMENT:
+   • Use strong passphrases for private keys
+   • Generate keys on secure, offline systems
+   • Maintain secure backups of private keys
+   • Set expiration dates for keys
+   • Create revocation certificates in advance
+
+d) OPERATIONAL SECURITY:
+   • Use air-gapped computers for sensitive operations
+   • Verify sender's signature on received messages
+   • Be cautious of key substitution attacks
+   • Regularly rotate encryption keys
+
+6. COMMON ATTACKS AND MITIGATIONS
+----------------------------------
+ATTACK: Man-in-the-Middle key substitution
+MITIGATION: Always verify key fingerprints
+
+ATTACK: Key compromise
+MITIGATION: Use key revocation, maintain revocation certificate
+
+ATTACK: Metadata leakage
+MITIGATION: Use anonymous remailers, Tor network
+
+ATTACK: Weak random number generation
+MITIGATION: Use hardware RNG, entropy gathering daemons
+
+7. PGP vs SSL/TLS COMPARISON
+-----------------------------
+┌─────────────┬────────────────────┬────────────────────┐
+│   Aspect    │        PGP         │     SSL/TLS        │
+├─────────────┼────────────────────┼────────────────────┤
+│ Trust Model │   Web of Trust     │   PKI (CA-based)   │
+│ Use Case    │   Email, Files     │   Web, Real-time   │
+│ Key Exchange│   Manual/Keyserver │   Automatic        │
+│ Perfect FS  │   No (standard)    │   Yes (with ECDHE) │
+│ Transparency│   User-controlled  │   CA-controlled    │
+└─────────────┴────────────────────┴────────────────────┘
+
+8. IMPLEMENTATION EXAMPLE (Python with python-gnupg)
+-----------------------------------------------------
+import gnupg
+
+# Initialize GPG
+gpg = gnupg.GPG()
+
+# Generate key pair
+input_data = gpg.gen_key_input(
+    name_real="Alice Smith",
+    name_email="alice@example.com",
+    key_type="RSA",
+    key_length=4096
+)
+key = gpg.gen_key(input_data)
+
+# Encrypt message
+encrypted = gpg.encrypt(
+    "Secret message",
+    recipients=['bob@example.com'],
+    sign='alice@example.com'
+)
+
+# Decrypt message
+decrypted = gpg.decrypt(encrypted.data)
+
+9. MODERN DEVELOPMENTS
+----------------------
+• PGP/MIME for email integration
+• OpenPGP smart cards for key storage
+• ProtonMail/Tutanota for user-friendly encrypted email
+• Signal Protocol combining best of PGP and modern crypto
+• Post-quantum cryptography preparations
+
+10. CONCLUSION
+--------------
+PGP remains a robust solution for asynchronous encrypted communication,
+particularly for email and file encryption. Its decentralized trust model
+provides user autonomy but requires more user education compared to
+SSL/TLS's automated approach. The hybrid encryption model efficiently
+combines security with performance, making it suitable for encrypting
+large amounts of data.
+
+===============================================================================
+ALTERNATIVE ANALYSIS: SSL/TLS HANDSHAKE
+===============================================================================
+
+For SSL/TLS analysis, the following would be examined:
+
+1. HANDSHAKE PROCESS:
+   • ClientHello → ServerHello
+   • Certificate exchange
+   • Key exchange (ECDHE/RSA)
+   • ChangeCipherSpec
+   • Encrypted application data
+
+2. CERTIFICATE VALIDATION:
+   • Chain verification
+   • OCSP checking
+   • Certificate pinning
+
+3. CIPHER SUITES:
+   • Modern: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+   • Forward secrecy with ECDHE
+   • AEAD ciphers (AES-GCM)
+
+4. WIRESHARK ANALYSIS:
+   • Capture HTTPS session
+   • Identify handshake packets
+   • Examine certificate details
+   • Note cipher suite negotiation
+
+===============================================================================
