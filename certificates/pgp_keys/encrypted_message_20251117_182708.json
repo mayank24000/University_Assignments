@@ -1,9 +1,0 @@
-{
-  "encrypted_session_key": "mEyYMWu/j/KhLo7WfWlu1bEgY9W1KQ9S4ISwut/h2D1zYwSLDnKy33ALaac71en49PZiU5w0p1OtKbVCcUsp6Re6DqkMa9hBhWA0xS+9lWdUf2mSwXFSRDQdL1O9pqErx4OodRs08tAnKFtHPj+Q766EG9W5GGzZyTVNn9iUlPzJ+fNsid68+9JRmkLacxU08B9mZLMbq7u5bYMiovPQbrmxsWGKyjWjfNxS7mKpNa0+0QJz2kQnIHZ86ms7RLUC0mQC6jD2WdQF6fgNpysXjK/fKZa5G+4TxzMU0KqwhThnVyA+AdjH/gU4aC3ncR22xugYB6+p38zsJebQPIB5dA==",
-  "iv": "qlxWIa7xXJ9D4oip+neGHQ==",
-  "ciphertext": "X9Js669QmPXxDO7vhz2cZKMPLEBYg7QtgfREK+Gskoa7x08OkjBtrH+10F2alH0oNWtsx3L/BfzUN2nELU06Tw==",
-  "signature": "psEn5pJ80ZkEd2iK8Cuffl5bzRaabWBHCTkATgxPP7VHyKXYMcymu8pysfOikyKyullYJ/i/tjaO/bdYBQN7dkI6n//94aBvJYhpiCkxHeYbV0odzjB5r4zGJzYj0X2Gq8SYo5zwVtlMJt7zLDpmSFtCJG6KUZOmH99MyIKAHdZwQUKOKIi0fKjcWopmptGhZOZ/EgY8s2dZ0h6e3McIw+FVxtnyAmmvErX9I9KbPGnjACxhzzgt0YBbM5Zn/kgal1CrEj69Xm7poT+KWavXSGs+U10LO9wf3m6WiwcAdWLCAM0sF8a5i7ex5xMKJZgM1ihuwklGpiYOewgpzlC5pw==",
-  "sender": "alice@example.com",
-  "recipient": "bob@example.com",
-  "timestamp": "2025-11-17T18:27:08.963302"
-}
