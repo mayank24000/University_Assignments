@@ -15,14 +15,11 @@ public class Student implements Serializable {
         this.marks = marks;
     }
 
-    // Getters
     public int getRollNo() { return rollNo; }
     public String getName() { return name; }
     public String getEmail() { return email; }
     public String getCourse() { return course; }
     public double getMarks() { return marks; }
-
-    // Helper to format data for File Writing (CSV format)
     public String toCSV() {
         return rollNo + "," + name + "," + email + "," + course + "," + marks;
     }

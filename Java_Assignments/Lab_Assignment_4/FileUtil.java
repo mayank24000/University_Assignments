@@ -4,8 +4,6 @@ import java.util.List;
 
 public class FileUtil {
     private static final String FILE_NAME = "students.txt";
-
-    // 1. File Handling: Read using BufferedReader
     public static List<Student> readStudentsFromFile() {
         List<Student> students = new ArrayList<>();
         File file = new File(FILE_NAME);
@@ -29,7 +27,6 @@ public class FileUtil {
                             Double.parseDouble(data[4])
                     );
                     students.add(s);
-                    // Display immediately as per expected output
                     System.out.println(s);
                 }
             }
@@ -38,8 +35,6 @@ public class FileUtil {
         }
         return students;
     }
-
-    // 1. File Handling: Write using BufferedWriter
     public static void writeStudentsToFile(List<Student> students) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Student s : students) {
@@ -52,7 +47,6 @@ public class FileUtil {
         }
     }
 
-    // Requirement: File Attributes using File class
     public static void displayFileAttributes() {
         File file = new File(FILE_NAME);
         if (file.exists()) {
@@ -66,12 +60,10 @@ public class FileUtil {
         }
     }
 
-    // Requirement: Reading records randomly using RandomAccessFile
     public static void demonstrateRandomAccess() {
         System.out.println("\n--- RandomAccessFile Demo ---");
         try (RandomAccessFile raf = new RandomAccessFile(FILE_NAME, "r")) {
-            // Simply reading the first few bytes to demonstrate access
-            raf.seek(0); // Go to beginning
+            raf.seek(0)
             System.out.println("First line read via RandomAccessFile:");
             System.out.println(raf.readLine());
         } catch (FileNotFoundException e) {

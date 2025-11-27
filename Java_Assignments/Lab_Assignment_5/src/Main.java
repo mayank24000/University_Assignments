@@ -3,11 +3,6 @@ import service.StudentManager;
 import util.StudentNotFoundException;
 
 import java.util.Scanner;
-
-/**
- * Main class - Entry point of the application
- * Provides console-based menu interface
- */
 public class Main {
     private static StudentManager studentManager;
     private static Scanner scanner;
@@ -16,7 +11,6 @@ public class Main {
         studentManager = new StudentManager();
         scanner = new Scanner(System.in);
 
-        // Load existing records on startup
         try {
             studentManager.loadFromFile();
         } catch (Exception e) {
@@ -63,7 +57,7 @@ public class Main {
                 }
             } catch (Exception e) {
                 System.err.println("\n✗ Error: " + e.getMessage());
-                scanner.nextLine(); // Clear buffer
+                scanner.nextLine();
             }
         }
 
@@ -88,10 +82,10 @@ public class Main {
     private static int getChoice() {
         try {
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
             return choice;
         } catch (Exception e) {
-            scanner.nextLine(); // Clear buffer
+            scanner.nextLine();
             return -1;
         }
     }
@@ -148,7 +142,6 @@ public class Main {
                 return;
             }
 
-            // Confirm deletion
             System.out.print("Are you sure you want to delete this student? (yes/no): ");
             String confirm = scanner.nextLine().trim();
 
@@ -181,7 +174,7 @@ public class Main {
             System.out.println("\n========== Update Student ==========");
             System.out.print("Enter Roll No of student to update: ");
             int rollNo = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             System.out.println("\nEnter new details:");
             Student updatedStudent = new Student();
@@ -193,7 +186,7 @@ public class Main {
             System.err.println("\n✗ " + e.getMessage());
         } catch (Exception e) {
             System.err.println("\n✗ Failed to update student: " + e.getMessage());
-            scanner.nextLine(); // Clear buffer
+            scanner.nextLine();
         }
     }
 

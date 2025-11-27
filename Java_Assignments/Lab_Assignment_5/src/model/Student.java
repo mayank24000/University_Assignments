@@ -2,22 +2,15 @@ package model;
 
 import java.util.Scanner;
 
-/**
- * Student class extending Person
- * Represents a student with additional attributes
- */
 public class Student extends Person {
     private int rollNo;
     private String course;
     private double marks;
     private String grade;
 
-    // Default constructor
     public Student() {
         super();
     }
-
-    // Parameterized constructor
     public Student(int rollNo, String name, String email, String course, double marks) {
         super(name, email);
         this.rollNo = rollNo;
@@ -26,11 +19,10 @@ public class Student extends Person {
         this.grade = calculateGrade();
     }
 
-    // Input student details
     public void inputDetails(Scanner scanner) throws Exception {
         System.out.print("Enter Roll No: ");
         this.rollNo = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
 
         System.out.print("Enter Name: ");
         this.name = scanner.nextLine().trim();
@@ -63,7 +55,6 @@ public class Student extends Person {
         this.grade = calculateGrade();
     }
 
-    // Calculate grade based on marks
     public String calculateGrade() {
         if (marks >= 90) {
             return "A+";
@@ -82,7 +73,6 @@ public class Student extends Person {
         }
     }
 
-    // Display student details
     public void displayDetails() {
         System.out.println("Roll No: " + rollNo);
         System.out.println("Name: " + name);
@@ -97,12 +87,10 @@ public class Student extends Person {
         displayDetails();
     }
 
-    // Convert student to file format
     public String toFileString() {
         return rollNo + "," + name + "," + email + "," + course + "," + marks + "," + grade;
     }
 
-    // Create student from file string
     public static Student fromFileString(String line) throws Exception {
         String[] parts = line.split(",");
         if (parts.length != 6) {
@@ -118,7 +106,6 @@ public class Student extends Person {
         return new Student(rollNo, name, email, course, marks);
     }
 
-    // Getters and Setters
     public int getRollNo() {
         return rollNo;
     }

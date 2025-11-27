@@ -1,4 +1,4 @@
-package service;
+package services;
 
 import model.Student;
 import java.util.*;
@@ -19,31 +19,31 @@ public class StudentManager implements RecordActions {
     }
     
     @Override
-    public boolean addStudent(Student student) {
+    public boolean addStudent(Student person1) {
         // Check for duplicate roll number
-        if (studentMap.containsKey(student.getRollNo())) {
+        if (studentMap.containsKey(person1.getRollNo())) {
             System.out.println("Error: Student with roll number " + 
-                             student.getRollNo() + " already exists!");
+                             person1.getRollNo() + " already exists!");
             return false;
         }
         
-        studentList.add(student);
-        studentMap.put(student.getRollNo(), student);
+        studentList.add(person1);
+        studentMap.put(person1.getRollNo(), person1);
         System.out.println("Student added successfully!");
         return true;
     }
     
     @Override
-    public boolean deleteStudent(int rollNo) {
-        Student student = studentMap.get(rollNo);
+    public boolean deleteStudent(Student person1) {
+        Student student = studentMap.get(person1);
         if (student == null) {
             System.out.println("Error: Student with roll number " + 
-                             rollNo + " not found!");
+                             person1 + " not found!");
             return false;
         }
         
         studentList.remove(student);
-        studentMap.remove(rollNo);
+        studentMap.remove(person1);
         System.out.println("Student deleted successfully!");
         return true;
     }

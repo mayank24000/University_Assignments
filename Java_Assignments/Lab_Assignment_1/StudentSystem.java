@@ -7,7 +7,6 @@ class Student {
     double Marks;
     char Grade;
 
-    // Constructor to initialize a new student object
     Student(int rollNo, String name, String course, double marks) {
         this.RollNo = rollNo;
         this.Name = name;
@@ -16,7 +15,6 @@ class Student {
         this.Grade = calculateGrade();
     }
 
-    // Method to calculate the grade based on marks
     public char calculateGrade() {
         if (Marks >= 90) {
             return 'A';
@@ -31,7 +29,6 @@ class Student {
         }
     }
 
-    // Method to display the details of this student
     public void displayStudentDetails() {
         System.out.println("Roll No: " + this.RollNo);
         System.out.println("Name: " + this.Name);
@@ -39,6 +36,11 @@ class Student {
         System.out.println("Marks: " + this.Marks);
         System.out.println("Grade: " + this.Grade);
         System.out.println("------------------------------");
+    }
+
+    public void displayInfo(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'displayInfo'");
     }
 }
 
@@ -54,7 +56,6 @@ public class StudentSystem {
         int choice;
 
         do {
-            // Show the menu options
             System.out.println("===== Student Menu =====");
             System.out.println("1. Add a New Student");
             System.out.println("2. Display All Students");

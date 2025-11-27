@@ -3,14 +3,9 @@ package service;
 import model.Student;
 import util.Loader;
 import util.StudentNotFoundException;
-
 import java.io.*;
 import java.util.*;
 
-/**
- * StudentManager class implementing RecordActions interface
- * Manages all student operations with file persistence
- */
 public class StudentManager implements RecordActions {
     private List<Student> studentList;
     private Map<Integer, Student> studentMap;

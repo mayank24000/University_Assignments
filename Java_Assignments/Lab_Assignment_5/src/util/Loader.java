@@ -1,9 +1,5 @@
 package util;
 
-/**
- * Loader class implementing Runnable for multithreading
- * Simulates loading animation
- */
 public class Loader implements Runnable {
     private volatile boolean running = true;
     private static final String[] ANIMATION = {"|", "/", "-", "\\"};
@@ -24,7 +20,7 @@ public class Loader implements Runnable {
             }
         }
         
-        System.out.print("\r"); // Clear the loading animation
+        System.out.print("\r");
     }
 
     public void stop() {

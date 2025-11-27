@@ -1,8 +1,5 @@
 package util;
 
-/**
- * Custom exception for invalid marks
- */
 public class InvalidMarksException extends Exception {
     
     public InvalidMarksException() {

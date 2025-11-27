@@ -1,24 +1,15 @@
 package model;
-
-/**
- * Abstract base class representing a Person
- * Demonstrates abstraction and inheritance
- */
 public abstract class Person {
     protected String name;
     protected String email;
 
-    // Default constructor
     public Person() {
     }
 
-    // Parameterized constructor
     public Person(String name, String email) {
         this.name = name;
         this.email = email;
     }
-
-    // Getters and Setters
     public String getName() {
         return name;
     }
@@ -34,7 +25,5 @@ public abstract class Person {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    // Abstract method to be implemented by child classes
     public abstract void displayInfo();
 }

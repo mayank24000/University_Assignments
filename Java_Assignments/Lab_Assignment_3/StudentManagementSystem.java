@@ -7,10 +7,7 @@ public class StudentManagementSystem {
         System.out.println("=== Student Management System ===\n");
         
         try {
-            // Direct input approach for assignment requirement
             Scanner scanner = new Scanner(System.in);
-            
-            // Using wrapper classes with autoboxing
             System.out.print("Enter Roll No (Integer): ");
             Integer rollNo = Integer.valueOf(scanner.nextLine());
             
@@ -26,22 +23,15 @@ public class StudentManagementSystem {
             System.out.print("Enter Marks: ");
             Double marks = Double.valueOf(scanner.nextLine());
             
-            // Input validation
             validateStudentData(rollNo, name, email, course, marks);
-            
-            // Create and process student
             Student student = new Student(rollNo, name, email, course, marks);
-            
-            // Multithreading for loading simulation
             LoadingTask loadingTask = new LoadingTask();
             Thread loadingThread = new Thread(loadingTask);
             loadingThread.start();
             loadingThread.join();
-            
-            // Calculate and set grade
+
             student.setGrade(calculateGrade(marks));
-            
-            // Display student information
+
             displayStudent(student);
             
             System.out.println("Program execution completed.");
@@ -60,8 +50,7 @@ public class StudentManagementSystem {
             System.out.println("\n=== System Shutdown ===");
         }
     }
-    
-    // Validation method
+
     private static void validateStudentData(Integer rollNo, String name, String email, 
                                            String course, Double marks) throws InvalidDataException {
         try {
@@ -84,8 +73,7 @@ public class StudentManagementSystem {
             throw new InvalidDataException("Validation failed: " + e.getMessage());
         }
     }
-    
-    // Grade calculation
+
     private static String calculateGrade(Double marks) {
         if (marks >= 90) return "A+";
         else if (marks >= 80) return "A";
@@ -95,8 +83,7 @@ public class StudentManagementSystem {
         else if (marks >= 40) return "E";
         else return "F";
     }
-    
-    // Display method
+
     private static void displayStudent(Student student) {
         try {
             if (student == null) {
@@ -110,7 +97,6 @@ public class StudentManagementSystem {
         }
     }
     
-    // Student class
     static class Student {
         private Integer rollNo;
         private String name;
@@ -142,7 +128,6 @@ public class StudentManagementSystem {
         }
     }
     
-    // Loading task for multithreading
     static class LoadingTask implements Runnable {
         @Override
         public void run() {
@@ -158,8 +143,7 @@ public class StudentManagementSystem {
             }
         }
     }
-    
-    // Custom Exceptions
+
     static class StudentNotFoundException extends Exception {
         public StudentNotFoundException(String message) {
             super(message);

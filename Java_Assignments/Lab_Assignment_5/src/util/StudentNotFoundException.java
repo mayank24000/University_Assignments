@@ -1,9 +1,5 @@
 package util;
 
-/**
- * Custom exception for student not found scenarios
- * Demonstrates custom exception handling
- */
 public class StudentNotFoundException extends Exception {
     
     public StudentNotFoundException() {

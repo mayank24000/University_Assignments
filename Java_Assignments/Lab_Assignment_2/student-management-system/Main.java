@@ -1,9 +1,6 @@
 import model.*;
-import service.*;
+import services.*;
 
-/**
- * Main class to demonstrate the Student Management System
- */
 public class Main {
     public static void main(String[] args) {
         // Create StudentManager instance
